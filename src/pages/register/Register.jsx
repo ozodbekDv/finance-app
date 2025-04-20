@@ -32,6 +32,11 @@ function Register() {
           </p>
         </div>
       </div>
+      <img
+        className="login-image"
+        src="./images/illustration-authentication.svg"
+        alt="finance image"
+      />
       <div className="login-form">
         <h1 className="login-title">Sign Up</h1>
         <form onSubmit={handleRegister}>

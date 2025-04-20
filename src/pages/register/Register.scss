@@ -10,13 +10,16 @@
   padding: 0;
 }
 
-.login-img {
-  width: 550px;
-  height: 860px;
+.login-image {
+  position: absolute;
+  z-index: -5;
+  top: 20px;
+  left: 20px;
   border-radius: 12px;
-  border-right-width: 1px;
-  margin: 20px;
+  height: 700px;
+  width: 550px;
 }
+
 
 .login-left {
   width: 550px;
@@ -24,7 +27,7 @@
   padding: $spacing-500;
   margin: 20px;
   border-radius: 12px;
-  background-image: url("./images/illustration-authentication.svg");
+
   display: flex;
   justify-content: space-between;
   flex-direction: column;
