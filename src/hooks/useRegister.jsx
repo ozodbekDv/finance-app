@@ -13,10 +13,10 @@ export const useRegister = () => {
   const [user, setUser] = useState(null);
   const [isPending, setIsPending] = useState(false);
 
-  const register = async (email, displayName, password) => {
+  const register = async (email, password, displayName) => {
     setIsPending(true);
     try {
-      const req = (await createUserWithEmailAndPassword(auth, email, password))
+      const req = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(auth.currentUser, {
         displayName,
         photoURL:
@@ -26,7 +26,8 @@ export const useRegister = () => {
       console.log(user);
       dispatch(login(user));
       setUser(user);
-    } catch {
+    } catch (err) {
+      console.error("Registration error:", err.message);
     } finally {
       setIsPending(false);
     }

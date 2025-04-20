@@ -8,7 +8,6 @@ function Mainlayout() {
       <main>
         <Outlet />
       </main>
-      ;
     </>
   );
 }

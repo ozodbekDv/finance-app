@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Register() {
   const { user, isPending, register } = useRegister();
 
-  const handleRegsiter = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
 
@@ -34,7 +34,7 @@ function Register() {
       </div>
       <div className="login-form">
         <h1 className="login-title">Sign Up</h1>
-        <form onSubmit={handleRegsiter}>
+        <form onSubmit={handleRegister}>
           <FormInput
             label="Name"
             name="displayName"
