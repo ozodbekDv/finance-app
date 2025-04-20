@@ -18,7 +18,7 @@ function Login() {
   return (
     <div className="login-page">
       <div className="login-left">
-        <img src="./images/logo-large.svg" alt="" />
+        <img src="./images/logo-large.svg" alt="login image" />
         <div>
           <h5 className="login-left-title">
             Keep track of your money and save for your future
