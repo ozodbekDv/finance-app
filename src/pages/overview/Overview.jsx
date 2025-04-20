@@ -1,7 +1,15 @@
+import useLogout from "../../hooks/useLogout";
 import "./Overview.scss";
 
 function Overview() {
-  return <div>Overview</div>;
+  const { signout, isPending } = useLogout();
+  return (
+    <div>
+      <button onClick={() => signout()}>
+        {isPending ? "Loading..." : "Logout"}
+      </button>
+    </div>
+  );
 }
 
 export default Overview;

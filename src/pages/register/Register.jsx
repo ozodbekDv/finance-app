@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 function Register() {
   const { user, isPending, register } = useRegister();
 
-  console.log(user);
-
   const handleRegsiter = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);

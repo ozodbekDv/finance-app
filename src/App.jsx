@@ -31,7 +31,7 @@ function App() {
   const routes = createBrowserRouter([
     {
       path: "/",
-      element: user ? <MainLayout /> : <Navigate to="login" />,
+      element: user ? <MainLayout /> : <Navigate to="/login" />,
       children: [
         {
           index: true,
