@@ -29,7 +29,11 @@ function Login() {
           </p>
         </div>
       </div>
-      <img className="login-image" src="./images/illustration-authentication.svg" alt="" />
+      <img
+        className="login-image"
+        src="./images/illustration-authentication.svg"
+        alt="finance image"
+      />
       <div className="login-form">
         <h1 className="login-title">Login</h1>
         <form onSubmit={handleLogin}>

@@ -35,7 +35,7 @@ function Register() {
       <img
         className="login-image"
         src="./images/illustration-authentication.svg"
-        alt=""
+        alt="finance image"
       />
       <div className="login-form">
         <h1 className="login-title">Sign Up</h1>
