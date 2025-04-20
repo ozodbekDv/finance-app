@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APP_API_KEY,
-  authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_APP_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_APP_ID,
+  apiKey: "AIzaSyBatY8zF9BwWxxqBaOS2GYcbY44kdD83d8",
+  authDomain: "finance-app-1d3f9.firebaseapp.com",
+  projectId: "finance-app-1d3f9",
+  storageBucket: "finance-app-1d3f9.firebasestorage.app",
+  messagingSenderId: "429883473968",
+  appId: "1:429883473968:web:692f9403cc5dc0e5286df5"
 };
 
 const app = initializeApp(firebaseConfig);
