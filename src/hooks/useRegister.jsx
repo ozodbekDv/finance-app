@@ -31,6 +31,7 @@ export const useRegister = () => {
     } finally {
       setIsPending(false);
     }
+    
   };
 
   return { user, register, isPending };

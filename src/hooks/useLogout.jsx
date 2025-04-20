@@ -19,4 +19,3 @@ export function useLogout() {
   return { signout, isPending };
 }
 
-export default useLogout;
