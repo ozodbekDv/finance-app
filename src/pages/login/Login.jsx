@@ -31,7 +31,7 @@ function Login() {
       </div>
       <img
         className="login-image"
-        src="./images/illustration-authentication.svg"
+        src="/images/illustration-authentication.svg"
         alt="finance image"
       />
       <div className="login-form">
