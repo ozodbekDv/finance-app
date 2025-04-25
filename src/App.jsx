@@ -22,10 +22,10 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/config";
 
 import { useDispatch } from "react-redux";
-import { login } from "./app/features/userSlice";
+import { isAuthReady, login } from "./app/features/userSlice";
 
 function App() {
-  const { user } = useSelector((s) => s.user);
+  const { user, isAuth } = useSelector((s) => s.user);
   const dispatch = useDispatch();
 
   const routes = createBrowserRouter([
@@ -38,19 +38,19 @@ function App() {
           element: <Overview />,
         },
         {
-          path: "pots",
+          path: "/pots",
           element: <Pots />,
         },
         {
-          path: "transactions",
+          path: "/transactions",
           element: <Transactions />,
         },
         {
-          path: "budget",
+          path: "/budget",
           element: <Budget />,
         },
         {
-          path: "recurringBills",
+          path: "/recurringBills",
           element: <RecurringBills />,
         },
       ],
@@ -67,10 +67,13 @@ function App() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      dispatch(login(user));
+      if (user) {
+        dispatch(login(user));
+      }
+      dispatch(isAuthReady());
     });
   });
-  return <RouterProvider router={routes} />;
+  return <>{isAuth && <RouterProvider router={routes} />}</>;
 }
 
 export default App;
