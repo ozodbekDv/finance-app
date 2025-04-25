@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useCollectionsData } from "../../hooks/useCollectionData";
 import { useLogout } from "../../hooks/useLogout";
 import style from "./Overview.module.scss";
-import PieChart from "../../components/PieChart";
 
 function Overview() {
   const { signout, isPending } = useLogout();
@@ -10,12 +9,12 @@ function Overview() {
   console.log(data);
   return (
     <div className={style.overview}>
-      <h1 className={style["overview-title"]}>
-        Overview
+      <div>
+        <h1 className={style["overview-title"]}>Overview</h1>
         <button onClick={() => signout()}>
           {isPending ? "Loading..." : "Logout"}
         </button>
-      </h1>
+      </div>
       <div className={style["overview-top"]}>
         <div>
           <span>Current Balance</span>
