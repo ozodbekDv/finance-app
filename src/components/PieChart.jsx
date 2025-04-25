@@ -1,58 +1,55 @@
-import ApexCharts from "apexcharts";
-import ReactApexChart from "apexcharts";
 import { useState } from "react";
+import ReactApexChart from "react-apexcharts";
 
 function PieChart() {
-  const ApexChart = () => {
-    const [state, setState] = useState({
-      series: [44, 55, 13, 33],
-      options: {
-        chart: {
-          width: 380,
-          type: "donut",
+  const [state, setState] = useState({
+    series: [44, 55, 13, 43, 22],
+    options: {
+      chart: {
+        width: 380,
+        type: "pie",
+      },
+      labels: ["Brownie", "Pie", "Macaron", "Tiramisu", "Baklava"],
+      legend: {
+        position: "right",
+        fontSize: "16px",
+        fontWeight: 600,
+        labels: {
+          colors: [""],
         },
-        dataLabels: {
-          enabled: false,
-        },
-        responsive: [
-          {
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 200,
-              },
-              legend: {
-                show: false,
-              },
-            },
-          },
-        ],
-        legend: {
-          position: "right",
-          offsetY: 0,
-          height: 230,
+        markers: {
+          width: 12,
+          height: 12,
+          strokeColor: "#000",
+          strokeWidth: 2,
         },
       },
-    });
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            legend: {
+              position: "bottom",
+            },
+          },
+        },
+      ],
+    },
+  });
 
-    return (
-      <div>
-        <div>
-          <div class="chart-wrap">
-            <div id="chart">
-              <ReactApexChart
-                options={state.options}
-                series={state.series}
-                type="donut"
-                width={380}
-              />
-            </div>
-          </div>
-        </div>
-        <div id="html-dist"></div>
-      </div>
-    );
-  };
+  return (
+    <div id="chart">
+      <ReactApexChart
+        options={state.options}
+        series={state.series}
+        type="pie"
+        width={380}
+      />
+    </div>
+  );
 }
 
 export default PieChart;

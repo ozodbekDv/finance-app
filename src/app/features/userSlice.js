@@ -12,7 +12,7 @@ const userSlice = createSlice({
     login: (state, { payload }) => {
       state.user = payload;
     },
-    logout: (state) => {
+    logut: (state) => {
       state.user = null;
     },
     isAuthReady: (state) => {
@@ -21,5 +21,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { isAuthReady, login, logout } = userSlice.actions;
+export const { isAuthReady, login, logut } = userSlice.actions;
 export default userSlice.reducer;
