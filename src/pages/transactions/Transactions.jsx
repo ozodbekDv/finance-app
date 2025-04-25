@@ -61,8 +61,6 @@ function Transactions() {
               data.transactions.slice(0, 6).map((item) => {
                 const dateStr = item.date;
                 const date = new Date(dateStr);
-
-                // Boshqa formatga o‘zgartirish (19 Aug 2024 kabi)
                 const options = {
                   year: "numeric",
                   month: "short",
