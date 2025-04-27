@@ -1,35 +1,44 @@
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
-function PieChart() {
+function Chart({ budgets }) {
   const [state, setState] = useState({
-    series: [44, 55, 13, 43, 22],
+    series: budgets.map((b) => b.maximum),
     options: {
+      plotOptions: {
+        pie: {
+          donut: {
+            labels: {
+              show: true,
+              name: {
+                show: true,
+                fontFamily: "Public sans",
+              },
+              value: {
+                show: true,
+                fontFamily: "Public sans",
+              },
+              total: {
+                show: true,
+                fontFamily: "Public sans",
+              },
+            },
+          },
+        },
+      },
       chart: {
-        width: 380,
-        type: "pie",
+        type: "donut",
+        fontFamily: "Public sans",
       },
-      labels: ["Brownie", "Pie", "Macaron", "Tiramisu", "Baklava"],
-      legend: {
-        position: "right",
-        fontSize: "16px",
-        fontWeight: 600,
-        labels: {
-          colors: [""],
-        },
-        markers: {
-          width: 12,
-          height: 12,
-          strokeColor: "#000",
-          strokeWidth: 2,
-        },
-      },
+      colors: budgets.map((b) => b.theme),
+      labels: budgets.map((b) => b.category),
+
       responsive: [
         {
-          breakpoint: 480,
+          breakpoint: 500,
           options: {
             chart: {
-              width: 200,
+              width: 500,
             },
             legend: {
               position: "bottom",
@@ -41,15 +50,17 @@ function PieChart() {
   });
 
   return (
-    <div id="chart">
-      <ReactApexChart
-        options={state.options}
-        series={state.series}
-        type="pie"
-        width={380}
-      />
+    <div>
+      <div style={{ width: "300px" }} id="chart">
+        <ReactApexChart
+          options={state.options}
+          series={state.series}
+          type="donut"
+        />
+      </div>
+      <div id="html-dist"></div>
     </div>
   );
 }
 
-export default PieChart;
+export default Chart;

@@ -34,33 +34,76 @@ const pages = [
   },
 ];
 
-function Sidebar() {
+function Sidebar({ showNavbar, setShowNavbar }) {
   const location = useLocation();
 
   return (
-    <div className={style.sidebar}>
-      <Link to="/" className={style["sidebar-top"]}>
-        <img src="../images/logo-large.svg" alt="site logo" />
-      </Link>
-      <ul>
-        {pages.map((page) => {
-          const isActive = location.pathname === page.path;
-          const linkClass = `${style["sidebar-link"]} ${
-            isActive ? style["active-link"] : ""
-          }`;
-          const linkIcon = isActive ? page.icon : page.icon;
+    <>
+      {!showNavbar && (
+        <div
+          className={`${style.sidebar} ${showNavbar && style["toggle-bar"]}`}
+        >
+          <Link to="/" className={style["sidebar-top"]}>
+            <img src="../images/logo-large.svg" alt="site logo" />
+          </Link>
+          <ul>
+            {pages.map((page) => {
+              const isActive = location.pathname === page.path;
+              const linkClass = `${style["sidebar-link"]} ${
+                isActive ? style["active-link"] : ""
+              }`;
+              const linkIcon = isActive ? page.icon : page.icon;
 
-          return (
-            <li key={page.name}>
-              <Link to={page.path} className={linkClass}>
-                <img src={page.icon} alt={`${page.name} icon`} />
-                <span>{page.name}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+              return (
+                <li key={page.name}>
+                  <Link to={page.path} className={linkClass}>
+                    <img src={page.icon} alt={`${page.name} icon`} />
+                    <span>{page.name}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <button
+            onClick={() => setShowNavbar(!showNavbar)}
+            className={style["sidebar-close_btn"]}
+          >
+            <img src="../images/icon-minimize-menu.svg" alt="" />
+            <span> Minimize Menu</span>
+          </button>
+        </div>
+      )}
+      {showNavbar && (
+        <div className={style.sidebar}>
+          <Link to="/" className={style["sidebar-top"]}>
+            <img src="../images/logo-small.svg" alt="site logo" />
+          </Link>
+          <ul>
+            {pages.map((page) => {
+              const isActive = location.pathname === page.path;
+              const linkClass = `${style["sidebar-link"]} ${
+                isActive ? style["active-link"] : ""
+              }`;
+              const linkIcon = isActive ? page.icon : page.icon;
+
+              return (
+                <li key={page.name}>
+                  <Link to={page.path} className={linkClass}>
+                    <img src={page.icon} alt={`${page.name} icon`} />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <button
+            onClick={() => setShowNavbar(!showNavbar)}
+            className={style["sidebar-close_btn"]}
+          >
+            <img src="../images/icon-max-menu.svg" alt="" />
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 
