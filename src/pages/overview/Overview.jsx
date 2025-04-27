@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { useCollectionsData } from "../../hooks/useCollectionData";
 import { useLogout } from "../../hooks/useLogout";
 import style from "./Overview.module.scss";
+import Chart from "../../components/PieChart";
 
 function Overview() {
   const { signout, isPending } = useLogout();
   const { data } = useCollectionsData();
-  console.log(data);
+
   return (
     <div className={style.overview}>
       <div>
@@ -141,10 +142,7 @@ function Overview() {
             </div>
             <div className={style["overview-budgets_bottom"]}>
               <div className={style["overview-budgets-chart"]}>
-                <img
-                  src="../images/Chart.png"
-                  alt="Keyingi vazifaga to'g'irlab qo'yaman"
-                />
+                {data && <Chart budgets={data.budgets} />}
               </div>
               <ul className={style["overview-budgets-list"]}>
                 {data &&

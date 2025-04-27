@@ -52,8 +52,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 main {
   flex-grow: 1;
+  overflow-y: auto;
+}
+
+.apexcharts-legend {
+  display: none !important;
 }
