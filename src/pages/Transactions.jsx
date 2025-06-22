@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCollectionsData } from "../../hooks/useCollectionData";
+import { useCollectionsData } from "../hooks/useCollectionData";
 import style from "./Transactions.module.scss";
 
 function Transactions() {
@@ -43,7 +43,7 @@ function Transactions() {
       if (sortBy === "lowest") {
         return a.amount - b.amount;
       }
-      return 0; 
+      return 0;
     })
     .slice(0, 6);
 
