@@ -1,24 +1,27 @@
-import "./Login.scss";
+import "./Register.scss";
 
-import FormInput from "../../components/formInput/FormInput";
+import { useRegister } from "../hooks/useRegister";
+
+import FormInput from "../components/formInput/FormInput";
 import { Link } from "react-router-dom";
-import { useLogin } from "../../hooks/useLogin";
 
-function Login() {
-  const { login, isPending } = useLogin();
-  const handleLogin = (e) => {
+function Register() {
+  const { user, isPending, register } = useRegister();
+
+  const handleRegister = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
 
     const email = formData.get("email");
+    const displayName = formData.get("displayName");
     const password = formData.get("password");
 
-    login(email, password);
+    register(email, password, displayName);
   };
   return (
     <div className="login-page">
       <div className="login-left">
-        <img src="./images/logo-large.svg" alt="login image" />
+        <img src="./images/logo-large.svg" alt="register image" />
         <div>
           <h5 className="login-left-title">
             Keep track of your money and save for your future
@@ -35,8 +38,14 @@ function Login() {
         alt="finance image"
       />
       <div className="login-form">
-        <h1 className="login-title">Login</h1>
-        <form onSubmit={handleLogin}>
+        <h1 className="login-title">Sign Up</h1>
+        <form onSubmit={handleRegister}>
+          <FormInput
+            label="Name"
+            name="displayName"
+            placeholder="Type here..."
+            type="text"
+          />
           <FormInput
             label="Email"
             name="email"
@@ -44,19 +53,19 @@ function Login() {
             type="email"
           />
           <FormInput
-            label="Password"
+            label="Create Password"
             name="password"
             placeholder="Type here..."
             type="password"
           />
           <button className="login-btn">
-            {isPending ? "Loading..." : "Login"}
+            {isPending ? "Loading..." : "Create Account"}
           </button>
         </form>
         <p className="register-caption">
-          Need to create account?{" "}
-          <Link className="link-register" to="/register">
-            SignUp
+          Already have an account?
+          <Link className="link-register" to="/login">
+            Login
           </Link>
         </p>
       </div>
@@ -64,4 +73,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

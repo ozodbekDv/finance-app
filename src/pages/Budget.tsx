@@ -1,5 +1,3 @@
-import "./Budget.scss";
-
 function Budget() {
   return <div>Budget</div>;
 }

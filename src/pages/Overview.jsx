@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useCollectionsData } from "../../hooks/useCollectionData";
-import { useLogout } from "../../hooks/useLogout";
+import { useCollectionsData } from "../hooks/useCollectionData";
+import { useLogout } from "../hooks/useLogout";
 import style from "./Overview.module.scss";
-import Chart from "../../components/PieChart";
+import Chart from "../components/PieChart";
 
 function Overview() {
   const { signout, isPending } = useLogout();
