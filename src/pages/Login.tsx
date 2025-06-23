@@ -53,6 +53,7 @@ function Login() {
               id="email"
               name="email"
               placeholder="Enter Your Email"
+              autoComplete="email"
             />
           </div>
           <div className="relative grid w-full items-center gap-3">
@@ -62,6 +63,7 @@ function Login() {
               id="password"
               name="password"
               placeholder="Enter Your password"
+              autoComplete="current-password"
             />
             <img
               onClick={() => setShowPassword((prev) => !prev)}
