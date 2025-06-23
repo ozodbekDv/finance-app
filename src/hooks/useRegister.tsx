@@ -13,25 +13,32 @@ export const useRegister = () => {
   const [user, setUser] = useState(null);
   const [isPending, setIsPending] = useState(false);
 
-  const register = async (email, password, displayName) => {
+  const register = async (
+    email: string | null,
+    password: string,
+    displayName: string
+  ) => {
     setIsPending(true);
     try {
       const req = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(auth.currentUser, {
-        displayName,
-        photoURL:
-          "https://api.dicebear.com/9.x/croodles/svg?seed=" + displayName,
-      });
+      // await updateProfile(auth.currentUser, {
+      //   displayName,
+      //   photoURL:
+      //     "https://api.dicebear.com/9.x/croodles/svg?seed=" + displayName,
+      // });
       const user = req.user;
       console.log(user);
       dispatch(login(user));
-      setUser(user);
+      // setUser(user);
     } catch (err) {
-      console.error("Registration error:", err.message);
+      if (err instanceof Error) {
+        console.log(err.message);
+      } else {
+        console.log("Nomaʼlum xatolik:", err);
+      }
     } finally {
       setIsPending(false);
     }
-    
   };
 
   return { user, register, isPending };
