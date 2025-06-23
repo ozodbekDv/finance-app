@@ -1,5 +1,3 @@
-import "./Pots.scss"
-
 function Pots() {
   return <div>Pots</div>;
 }
