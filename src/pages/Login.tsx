@@ -4,8 +4,12 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import {useLogin} from "../hooks/useLogin"
+
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const {login} = useLogin()
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,7 +19,7 @@ function Login() {
     const email = formData.get("email");
     const password = formData.get("password");
 
-    console.log({ email, password });
+    login(JSON.stringify(email), JSON.stringify(password));
 
     form.reset();
   };
