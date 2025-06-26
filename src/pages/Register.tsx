@@ -53,10 +53,21 @@ function Register() {
           <div className="grid w-full items-center gap-3 mb-4">
             <Label htmlFor="email">Email</Label>
             <Input
+              type="text"
+              id="name"
+              name="Name"
+              placeholder="Enter Your Name"
+              autoComplete="given-name"
+            />
+          </div>
+          <div className="grid w-full items-center gap-3 mb-4">
+            <Label htmlFor="email">Email</Label>
+            <Input
               type="email"
               id="email"
               name="email"
               placeholder="Enter Your Email"
+              autoComplete="email"
             />
           </div>
           <div className="relative grid w-full items-center gap-3">
@@ -66,6 +77,7 @@ function Register() {
               id="password"
               name="password"
               placeholder="Enter your password"
+              autoComplete="new-password"
             />
             <img
               onClick={() => setShowPassword((prev) => !prev)}
