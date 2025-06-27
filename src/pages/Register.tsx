@@ -4,8 +4,10 @@ import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 
 import { useState } from "react";
+import { useRegister } from "@/hooks/useRegister";
 
 function Register() {
+  const { register } = useRegister();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -13,19 +15,17 @@ function Register() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const email = formData.get("email");
-    const password = formData.get("password");
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    const displayName = formData.get("displayName") as string;
 
-    console.log({ email, password });
+    register(email, password, displayName);
 
     form.reset();
   };
   return (
-    <div className="grid md:grid-cols-2 w-full place-items-center mt-[109px] md:mt-0">
-      <div className="flex md:hidden fixed bg-gray-900 top-0 w-[100dvw] py-6 justify-center">
-        <img src="../images/logo-large.svg" alt="site logo" />
-      </div>
-      <div className="text-white h-[95vh] w-[460px] hidden md:block">
+    <div className="flex justify-center items-center gap-[140px] mt-[100px]  md:w-[1150px] mx-auto">
+      <div className="text-white h-[95vh] w-[460px] hidden md:block ">
         <img
           className="absolute top-0 -z-10 h-[94vh] my-5 rounded-[12px]"
           src="../images/illustration-authentication.svg"
@@ -46,16 +46,16 @@ function Register() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-8 p-8 rounded-[12px] bg-white md:w-[560px]"
+        className="flex flex-col gap-8 p-8 rounded-[12px] bg-white w-full mx-10 sm:w-[560px]"
       >
-        <h2 className="font-bold text-[32px] text-gray-900">Login</h2>
+        <h2 className="font-bold text-[32px] text-gray-900">Sign Up</h2>
         <div>
           <div className="grid w-full items-center gap-3 mb-4">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="displayName">Name</Label>
             <Input
               type="text"
-              id="name"
-              name="Name"
+              id="displayName"
+              name="displayName"
               placeholder="Enter Your Name"
               autoComplete="given-name"
             />
