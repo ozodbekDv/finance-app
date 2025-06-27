@@ -7,6 +7,7 @@ import { login as _login } from "../app/features/userSlice";
 import { useDispatch } from "react-redux";
 
 import type { User } from "firebase/auth";
+import { toast } from "sonner";
 
 export const useLogin = () => {
   const dispatch = useDispatch();
@@ -22,9 +23,11 @@ export const useLogin = () => {
 
       dispatch(_login(user));
       setUser(user);
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Noma'lum xatolik";
+    } catch (err: any) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Noma'lum xatolik";
       console.error("Login error:", errorMessage);
+      toast.error(err.message);
     } finally {
       setIsPending(false);
     }

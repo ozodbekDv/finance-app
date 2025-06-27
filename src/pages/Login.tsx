@@ -4,28 +4,28 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import {useLogin} from "../hooks/useLogin"
+import { useLogin } from "../hooks/useLogin";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
-  const {login} = useLogin()
+  const { login } = useLogin();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const email = formData.get("email");
-    const password = formData.get("password");
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
 
-    login(JSON.stringify(email), JSON.stringify(password));
+    login(email, password);
 
     form.reset();
   };
   return (
-    <div className="grid grid-cols-2 w-full place-items-center">
-      <div className="text-white h-[95vh] w-[460px] ">
+    <div className="flex justify-center items-center gap-[140px] mt-[100px] md:w-[1150px] mx-auto">
+      <div className="text-white h-[95vh] w-[460px] hidden md:block ">
         <img
           className="absolute top-0 -z-10 h-[94vh] my-5 rounded-[12px]"
           src="../images/illustration-authentication.svg"
@@ -46,7 +46,7 @@ function Login() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-8 p-8 rounded-[12px] bg-white w-[560px]"
+        className="flex flex-col gap-8 p-8 rounded-[12px] bg-white w-full mx-10 sm:w-[560px]"
       >
         <h2 className="font-bold text-[32px] text-gray-900">Login</h2>
         <div>
