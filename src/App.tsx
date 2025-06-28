@@ -16,13 +16,17 @@ import {
 import { useSelector } from "react-redux";
 import type { RootState } from "./app/store";
 
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Mainlayout from "./layout/Mainlayout";
 import Pots from "./pages/Pots";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { isAuthReady, login } from "./app/features/userSlice";
+import { auth } from "./firebase/config";
 
 function App() {
-  const { user } = useSelector((state: RootState) => state.user);
-  // const dispatch = useDispatch();
+  const { user, isAuth } = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
 
   const routes = createBrowserRouter([
     {
@@ -61,6 +65,15 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={routes} />;
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(login(user));
+      }
+      dispatch(isAuthReady());
+    });
+  }, [dispatch]);
+
+  return <>{isAuth && <RouterProvider router={routes} />}</>;
 }
 export default App;

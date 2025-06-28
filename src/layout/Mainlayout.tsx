@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
-// import { useState } from "react";
-// import Sidebar from "@/components/Sidebar";
+import { useState } from "react";
+import Sidebar from "@/components/Sidebar";
 
 function Mainlayout() {
-  // const [showNavbar, setShowNavbar] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
   return (
-    <div className="container">
-      {/* <Sidebar showNavbar={showNavbar} setShowNavbar={setShowNavbar} /> */}
-      <main>
+    <div className="flex gap-10">
+      <Sidebar showNavbar={showNavbar} setShowNavbar={setShowNavbar} />
+      <main className="container grow">
         <Outlet />
       </main>
     </div>

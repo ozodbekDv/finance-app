@@ -23,6 +23,7 @@ export const useLogin = () => {
 
       dispatch(_login(user));
       setUser(user);
+      toast.success("Seccessfully logged in");
     } catch (err: any) {
       const errorMessage =
         err instanceof Error ? err.message : "Noma'lum xatolik";
