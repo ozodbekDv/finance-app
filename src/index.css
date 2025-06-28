@@ -126,3 +126,43 @@
 .heading {
   @apply font-bold;
 }
+
+.overview-cards {
+  @apply bg-white rounded-[12px] p-8;
+}
+
+@layer theme {
+  :root {
+    /* === Beige === */
+    --beige-500: #96908b;
+    --beige-100: #f6f4f0;
+
+    /* === Grey === */
+    --grey-900: #20212f;
+    --grey-500: #868684;
+    --grey-300: #ababab;
+    --grey-100: #f2f2f2;
+
+    /* === Secondary === */
+    --green: #277c78;
+    --yellow: #f2cdac;
+    --cyan: #82cdd7;
+    --navy: #686870;
+    --red: #c94739;
+    --purple: #826bc0;
+
+    /* === Other Colors === */
+    --purple-alt: #af81ba;
+    --turquoise: #557c7c;
+    --brown: #93574f;
+    --magenta: #934f6f;
+    --blue: #3f82b2;
+    --navy-grey: #979aac;
+    --army-green: #7f8b61;
+    --gold: #cab361;
+    --orange: #bb6c48;
+
+    /* === White === */
+    --white: #ffffff;
+  }
+}

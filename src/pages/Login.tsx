@@ -24,7 +24,7 @@ function Login() {
     form.reset();
   };
   return (
-    <div className="flex justify-center items-center gap-[140px] mt-[100px] md:w-[1150px] mx-auto">
+    <div className="flex justify-center items-center gap-[140px] mt-[100px] md:mt-0 md:w-[1150px] mx-auto">
       <div className="text-white h-[95vh] w-[460px] hidden md:block ">
         <img
           className="absolute top-0 -z-10 h-[94vh] my-5 rounded-[12px]"
