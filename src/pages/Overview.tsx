@@ -67,7 +67,71 @@ function Overview() {
               </div>
             </div>
           </div>
-          <div className="overview-cards">transactions</div>
+          <div className="overview-cards">
+            <OverviewCardTop path="/" link="View All" title="Transactions" />
+            <div className="flex flex-col gap-5 mt-8">
+              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
+                  <h3 className="font-bold text-[14px]">Emma Richardson</h3>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[14px] text-green-700">
+                    +$75.50
+                  </h4>
+                  <p>19 Aug 2024</p>
+                </div>
+              </div>
+              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
+                  <h3 className="font-bold text-[14px]">Savory Bites Bistro</h3>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[14px] text-green-700">
+                    -$55.50
+                  </h4>
+                  <p>19 Aug 2024</p>
+                </div>
+              </div>
+              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
+                  <h3 className="font-bold text-[14px]">Daniel Carter</h3>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[14px] text-green-700">
+                    -$42.30
+                  </h4>
+                  <p>18 Aug 2024</p>
+                </div>
+              </div>
+              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
+                  <h3 className="font-bold text-[14px]">Sun Park</h3>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[14px] text-green-700">
+                    +$120.00
+                  </h4>
+                  <p>17 Aug 2024</p>
+                </div>
+              </div>
+              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
+                  <h3 className="font-bold text-[14px]">Urban Services Hub</h3>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[14px] text-green-700">
+                    -$65.00
+                  </h4>
+                  <p>17 Aug 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="flex flex-col gap-4">
           <div className="overview-cards">budgets</div>
