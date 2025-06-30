@@ -3,7 +3,7 @@ import { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 
 function Mainlayout() {
-  const [showNavbar, setShowNavbar] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
   return (
     <div className="flex gap-10">
       <Sidebar showNavbar={showNavbar} setShowNavbar={setShowNavbar} />

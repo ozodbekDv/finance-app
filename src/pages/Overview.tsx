@@ -1,5 +1,6 @@
 import OverviewCardTop from "@/components/OverviewCardTop";
 import { BadgeDollarSign } from "lucide-react";
+import MyChart from "@/components/PieChart";
 
 function Overview() {
   return (
@@ -19,7 +20,7 @@ function Overview() {
           <h4 className="font-bold text-[32px]">$1,700.50</h4>
         </div>
       </div>
-      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-6">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-4">
         <div className="flex flex-col gap-4 mb-4">
           <div className="overview-cards">
             <OverviewCardTop path="/" link="See Details" title="Pots" />
@@ -134,7 +135,50 @@ function Overview() {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <div className="overview-cards">budgets</div>
+          <div className="overview-cards">
+            <OverviewCardTop path="/" link="See Details" title="Budgets" />
+            <div className="flex gap-4 mt-5">
+              <MyChart />
+              <div className="flex flex-col gap-4">
+                <div className="px-4 flex gap-4 items-center">
+                  <span className="rounded-[8px] w-1 h-10 bg-[#277C78] inline-block"></span>
+                  <div>
+                    <span className="text-[12px]">Entertainment</span>
+                    <h4 className="font-bold text-[14px] text-gray-900">
+                      $50.00
+                    </h4>
+                  </div>
+                </div>
+                <div className="px-4 flex gap-4 items-center">
+                  <span className="rounded-[8px] w-1 h-10 bg-[#82C9D7] inline-block"></span>
+                  <div>
+                    <span className="text-[12px]">Bills</span>
+                    <h4 className="font-bold text-[14px] text-gray-900">
+                      $750.00
+                    </h4>
+                  </div>
+                </div>
+                <div className="px-4 flex gap-4 items-center">
+                  <span className="rounded-[8px] w-1 h-10 bg-[#F2CDAC] inline-block"></span>
+                  <div>
+                    <span className="text-[12px]">Dining Out</span>
+                    <h4 className="font-bold text-[14px] text-gray-900">
+                      $75.00
+                    </h4>
+                  </div>
+                </div>
+                <div className="px-4 flex gap-4 items-center">
+                  <span className="rounded-[8px] w-1 h-10 bg-[#626070] inline-block"></span>
+                  <div>
+                    <span className="text-[12px]">Personal Care</span>
+                    <h4 className="font-bold text-[14px] text-gray-900">
+                      $100.00
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="overview-cards">recurring bills</div>
         </div>
       </div>
