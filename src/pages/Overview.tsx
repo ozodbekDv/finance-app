@@ -179,7 +179,27 @@ function Overview() {
               </div>
             </div>
           </div>
-          <div className="overview-cards">recurring bills</div>
+          <div className="overview-cards">
+            <OverviewCardTop
+              path="/"
+              title="Recurring Bills"
+              link="See Details"
+            />
+            <div className="flex flex-col gap-3 mt-8 ">
+              <div className="overview-bills border-l-[4px] border-[#277C78]">
+                <p className="text-[14px] text-gray-500">Paid Bills</p>
+                <h4 className="font-bold text-[14px]">$190.00</h4>
+              </div>
+              <div className="overview-bills border-l-[4px] border-[#F2CDAC]">
+                <p className="text-[14px] text-gray-500">Total Upcoming</p>
+                <h4 className="font-bold text-[14px]">$194.98</h4>
+              </div>
+              <div className="overview-bills border-l-[4px] border-[#82C9D7]">
+                <p className="text-[14px] text-gray-500">Due Soon</p>
+                <h4 className="font-bold text-[14px]">$59.98</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

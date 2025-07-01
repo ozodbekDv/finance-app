@@ -36,7 +36,7 @@ function MyChart() {
   return (
     <ChartContainer
       config={chartConfig}
-      className="mx-auto max-w-[250px] w-full -rotate-90"
+      className="mx-auto max-w-[250px] w-full"
     >
       <PieChart>
         <Pie data={chartData} dataKey="visitors" nameKey="browser" stroke="0" />
