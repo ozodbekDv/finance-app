@@ -47,7 +47,7 @@ type ChildProps = {
 
 function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
   const location = useLocation();
-  const text = ` right-0 bottom-0 flex flex-row   `;
+
   return (
     <div
       className={`lg:flex-col lg:flex fixed lg:sticky lg:top-0 bottom-0 left-0  right-0 bg-gray-900 z-20 lg:h-[100vh] lg:transition-all lg:duration-200 lg:rounded-r-2xl lg:pb-6 ${
