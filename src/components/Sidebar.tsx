@@ -47,14 +47,14 @@ type ChildProps = {
 
 function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
   const location = useLocation();
-
+  const text = ` right-0 bottom-0 flex flex-row   `;
   return (
     <div
-      className={`bg-gray-900 text-gray-300 sticky top-0 flex flex-col rounded-r-2xl pb-6 transition-all duration-200 h-[100vh] ${
-        showNavbar ? " w-[300px]" : " w-[88px]"
+      className={`lg:flex-col lg:flex fixed lg:sticky lg:top-0 bottom-0 left-0  right-0 bg-gray-900 z-20 lg:h-[100vh] lg:transition-all lg:duration-200 lg:rounded-r-2xl lg:pb-6 ${
+        showNavbar ? " lg:w-[300px]" : " lg:w-[88px]"
       }`}
     >
-      <Link to="/" className="py-10 mb-5 mx-auto grow-0">
+      <Link to="/" className="py-10 mb-5 mx-auto grow-0 hidden lg:block">
         <img
           src={
             showNavbar ? "../images/logo-large.svg" : "../images/logo-small.svg"
@@ -62,7 +62,7 @@ function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
           alt="site logo"
         />
       </Link>
-      <ul className="flex flex-col gap-1 grow pr-2">
+      <ul className="flex flex-row lg:flex-col justify-between lg:justify-start  gap-1 grow pr-2">
         {pages.map((page) => {
           const isActive = location.pathname === page.path;
 
@@ -70,18 +70,18 @@ function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
             <li key={page.name} className="">
               <Link
                 to={page.path}
-                className={`flex items-center gap-4 rounded-r-xl transition-all duration-200 border-l-[4px] ${
+                className={`flex flex-col lg:flex-row items-center gap-0 lg:gap-4 rounded-t-[8px] mt-2 lg:rounded-r-[8px] lg:rounded-t-none transition-all duration-200 lg:border-l-[4px] border-b-[4px] lg:border-b-0 ${
                   showNavbar ? "px-8 py-4" : "px-0 py-4 pl-8"
                 } ${
                   isActive
                     ? "bg-white text-[#277C78] border-[#277c78]"
-                    : "border-transparent"
+                    : "border-transparent text-gray-300 "
                 }`}
               >
                 {page.icon}
                 {showNavbar && (
                   <span
-                    className={`font-bold ${
+                    className={`font-bold hidden sm:inline ${
                       isActive ? "text-gray-900" : "text-gray-300"
                     }`}
                   >
@@ -93,22 +93,24 @@ function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
           );
         })}
       </ul>
-      {showNavbar ? (
-        <button
-          className="grow-0 flex gap-4 px-4"
-          onClick={() => setShowNavbar(false)}
-        >
-          <img src="../images/icon-minimize-menu.svg" alt="" />
-          <span> Minimize Menu</span>
-        </button>
-      ) : (
-        <button
-          className="grow-0 flex gap-4 px-6"
-          onClick={() => setShowNavbar(true)}
-        >
-          <img src="../images/icon-max-menu.svg" alt="" />
-        </button>
-      )}
+      <div className="hidden lg:flex text-gray-500 font-bold">
+        {showNavbar ? (
+          <button
+            className="grow-0 flex gap-4 px-4"
+            onClick={() => setShowNavbar(false)}
+          >
+            <img src="../images/icon-minimize-menu.svg" alt="" />
+            <span> Minimize Menu</span>
+          </button>
+        ) : (
+          <button
+            className="grow-0 flex gap-4 px-6"
+            onClick={() => setShowNavbar(true)}
+          >
+            <img src="../images/icon-max-menu.svg" alt="" />
+          </button>
+        )}
+      </div>
     </div>
   );
 }
