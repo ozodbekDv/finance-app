@@ -15,7 +15,7 @@ export interface Pot {
 
 export interface Transaction {
   amount: number;
-  date: string;
+  date?: string;
   category: string;
   name: string;
   avatar: string;

@@ -5,6 +5,7 @@ import {
   House,
   NotebookText,
 } from "lucide-react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const pages = [
@@ -50,7 +51,7 @@ function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
 
   return (
     <div
-      className={`lg:flex-col lg:flex fixed lg:sticky lg:top-0 bottom-0 left-0  right-0 bg-gray-900 z-20 lg:h-[100vh] lg:transition-all lg:duration-200 lg:rounded-r-2xl lg:pb-6 ${
+      className={`lg:flex-col lg:flex fixed lg:sticky lg:top-0 bottom-0 left-0 right-0 bg-gray-900 z-20 lg:h-[100vh] lg:transition-all lg:duration-200 lg:rounded-r-2xl lg:pb-6 ${
         showNavbar ? " lg:w-[300px]" : " lg:w-[88px]"
       }`}
     >
@@ -70,8 +71,8 @@ function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
             <li key={page.name} className="">
               <Link
                 to={page.path}
-                className={`flex flex-col lg:flex-row items-center gap-0 lg:gap-4 rounded-t-[8px] mt-2 lg:rounded-r-[8px] lg:rounded-t-none transition-all duration-200 lg:border-l-[4px] border-b-[4px] lg:border-b-0 ${
-                  showNavbar ? "px-8 py-4" : "px-0 py-4 pl-8"
+                className={`flex flex-col lg:flex-row  items-center gap-0 lg:gap-4 rounded-t-[8px] mt-2 lg:rounded-r-[8px] lg:rounded-t-none transition-all duration-200 lg:border-l-[4px] border-b-[4px] lg:border-b-0 ${
+                  showNavbar ? "px-8 py-4" : "lg:px-0 lg:py-4 lg:pl-8 px-5 py-3"
                 } ${
                   isActive
                     ? "bg-white text-[#277C78] border-[#277c78]"
@@ -81,7 +82,7 @@ function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
                 {page.icon}
                 {showNavbar && (
                   <span
-                    className={`font-bold hidden sm:inline ${
+                    className={`font-bold lg:block hidden ${
                       isActive ? "text-gray-900" : "text-gray-300"
                     }`}
                   >
@@ -115,4 +116,4 @@ function Sidebar({ showNavbar, setShowNavbar }: ChildProps) {
   );
 }
 
-export default Sidebar;
+export default React.memo(Sidebar);

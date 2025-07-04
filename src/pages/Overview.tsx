@@ -4,7 +4,7 @@ import MyChart from "@/components/PieChart";
 
 function Overview() {
   return (
-    <div className="container py-8 flex flex-col gap-8 lg:px-10">
+    <div className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5">
       <h1 className="font-bold text-3xl mt-2 mb-2.5">Overview</h1>
       <div className="flex md:flex-row flex-col md:justify-between md:gap-6 gap-3">
         <div className="p-6 rounded-[12px] text-white bg-gray-900 w-full">
