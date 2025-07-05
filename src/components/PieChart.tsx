@@ -32,11 +32,11 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-function MyChart() {
+function MyChart({ className }: { className?: string }) {
   return (
     <ChartContainer
       config={chartConfig}
-      className="mx-auto max-w-[250px] w-full"
+      className={`mx-auto max-w-[250px] w-full ${className}`}
     >
       <PieChart>
         <Pie data={chartData} dataKey="visitors" nameKey="browser" stroke="0" />
