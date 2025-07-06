@@ -110,6 +110,35 @@ function Budget() {
                   link="See All"
                   title="Latest Spending"
                 />
+                <div className="flex flex-col gap-3">
+                  <div className="pb-3 border-b-1 border-gray-500 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pb-3 border-b-1 border-gray-500 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pb-3 border-b-1 border-gray-500 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
