@@ -1,5 +1,5 @@
 import { useCollectionsData } from "@/hooks/useCollectionData";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // shadcn/ui components
 import {
