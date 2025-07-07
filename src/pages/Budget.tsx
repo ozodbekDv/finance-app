@@ -13,7 +13,7 @@ function Budget() {
         <Button className="py-6">+ Add New Budget</Button>
       </div>
       <div className="flex gap-6">
-        <div className="px-8 pb-8 rounded-[12px] bg-white">
+        <div className="px-8 pb-8 rounded-[12px] bg-white h-full">
           <MyChart className="h-[300px] w-[300px]" />
 
           <div>
@@ -72,7 +72,7 @@ function Budget() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-6 w-full">
           <div className="flex flex-col bg-white rounded-[12px] p-8 w-full">
             <div className="flex justify-between items-center">
               <h2 className="flex items-center gap-2">
@@ -104,14 +104,14 @@ function Budget() {
                   </div>
                 </div>
               </div>
-              <div className="p-5 bg-[#F8F4F0] rounded-[12px]">
+              <div className="p-5 mt-5 bg-[#F8F4F0] rounded-[12px]">
                 <OverviewCardTop
                   path="/"
                   link="See All"
                   title="Latest Spending"
                 />
-                <div className="flex flex-col gap-3">
-                  <div className="pb-3 border-b-1 border-gray-500 text-gray-900 flex justify-between items-center">
+                <div className="flex flex-col gap-3 mt-5">
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
                     <h3 className="font-bold text-[12px]">James Thompson</h3>
                     <div>
                       <h4 className="font-bold text-[12px]">-$5.00</h4>
@@ -120,7 +120,7 @@ function Budget() {
                       </span>
                     </div>
                   </div>
-                  <div className="pb-3 border-b-1 border-gray-500 text-gray-900 flex justify-between items-center">
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
                     <h3 className="font-bold text-[12px]">James Thompson</h3>
                     <div>
                       <h4 className="font-bold text-[12px]">-$5.00</h4>
@@ -129,7 +129,214 @@ function Budget() {
                       </span>
                     </div>
                   </div>
-                  <div className="pb-3 border-b-1 border-gray-500 text-gray-900 flex justify-between items-center">
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col bg-white rounded-[12px] p-8 w-full">
+            <div className="flex justify-between items-center">
+              <h2 className="flex items-center gap-2">
+                <span className="bg-[#82C9D7] rounded-full inline-block w-4 h-4" />
+                <span className="font-bold text-[20px] text-gray-900">
+                  Bills
+                </span>
+              </h2>
+              <EllipsisVertical />
+            </div>
+            <div className="flex flex-col gap-4">
+              <p className="text-gray-500 w-[544px]">Maximum of $50.00</p>
+              <div className="h-8 rounded-sm p-1 bg-[#F8F4F0]">
+                <span className="block h-full w-[25%] rounded-sm bg-[#82C9D7]" />
+              </div>
+              <div className="grid grid-cols-2">
+                <div className="flex gap-4">
+                  <span className="bg-[#82C9D7] rounded-[8px] inline-block w-1 h-11 "></span>
+                  <div>
+                    <span className="text-[12px] text-gray-500">Remaining</span>
+                    <h4 className="font-bold text-[14px]">$150</h4>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <span className="bg-[#F8F4F0] rounded-[8px] inline-block w-1 h-11 "></span>
+                  <div>
+                    <span className="text-[12px] text-gray-500">Spent</span>
+                    <h4 className="font-bold text-[14px]">$600</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 mt-5 bg-[#F8F4F0] rounded-[12px]">
+                <OverviewCardTop
+                  path="/"
+                  link="See All"
+                  title="Latest Spending"
+                />
+                <div className="flex flex-col gap-3 mt-5">
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col bg-white rounded-[12px] p-8 w-full">
+            <div className="flex justify-between items-center">
+              <h2 className="flex items-center gap-2">
+                <span className="bg-[#F2CDAC] rounded-full inline-block w-4 h-4" />
+                <span className="font-bold text-[20px] text-gray-900">
+                  Dining Out
+                </span>
+              </h2>
+              <EllipsisVertical />
+            </div>
+            <div className="flex flex-col gap-4">
+              <p className="text-gray-500 w-[544px]">Maximum of $50.00</p>
+              <div className="h-8 rounded-sm p-1 bg-[#F8F4F0]">
+                <span className="block h-full w-[100%] rounded-sm bg-[#F2CDAC]" />
+              </div>
+              <div className="grid grid-cols-2">
+                <div className="flex gap-4">
+                  <span className="bg-[#F2CDAC] rounded-[8px] inline-block w-1 h-11 "></span>
+                  <div>
+                    <span className="text-[12px] text-gray-500">Remaining</span>
+                    <h4 className="font-bold text-[14px]">$35.00</h4>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <span className="bg-[#F8F4F0] rounded-[8px] inline-block w-1 h-11 "></span>
+                  <div>
+                    <span className="text-[12px] text-gray-500">Spent</span>
+                    <h4 className="font-bold text-[14px]">$0</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 mt-5 bg-[#F8F4F0] rounded-[12px]">
+                <OverviewCardTop
+                  path="/"
+                  link="See All"
+                  title="Latest Spending"
+                />
+                <div className="flex flex-col gap-3 mt-5">
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col bg-white rounded-[12px] p-8 w-full">
+            <div className="flex justify-between items-center">
+              <h2 className="flex items-center gap-2">
+                <span className="bg-[#626070] rounded-full inline-block w-4 h-4" />
+                <span className="font-bold text-[20px] text-gray-900">
+                  Personal Care
+                </span>
+              </h2>
+              <EllipsisVertical />
+            </div>
+            <div className="flex flex-col gap-4">
+              <p className="text-gray-500 w-[544px]">Maximum of $50.00</p>
+              <div className="h-8 rounded-sm p-1 bg-[#F8F4F0]">
+                <span className="block h-full w-[66%] rounded-sm bg-[#626070]" />
+              </div>
+              <div className="grid grid-cols-2">
+                <div className="flex gap-4">
+                  <span className="bg-[#626070] rounded-[8px] inline-block w-1 h-11 "></span>
+                  <div>
+                    <span className="text-[12px] text-gray-500">Remaining</span>
+                    <h4 className="font-bold text-[14px]">$40.00</h4>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <span className="bg-[#F8F4F0] rounded-[8px] inline-block w-1 h-11 "></span>
+                  <div>
+                    <span className="text-[12px] text-gray-500">Spent</span>
+                    <h4 className="font-bold text-[14px]">$60.00</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 mt-5 bg-[#F8F4F0] rounded-[12px]">
+                <OverviewCardTop
+                  path="/"
+                  link="See All"
+                  title="Latest Spending"
+                />
+                <div className="flex flex-col gap-3 mt-5">
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
+                    <h3 className="font-bold text-[12px]">James Thompson</h3>
+                    <div>
+                      <h4 className="font-bold text-[12px]">-$5.00</h4>
+                      <span className="text-[12px] text-[#696868]">
+                        11 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pb-3 border-b-1 border-[#696868]/15 text-gray-900 flex justify-between items-center">
                     <h3 className="font-bold text-[12px]">James Thompson</h3>
                     <div>
                       <h4 className="font-bold text-[12px]">-$5.00</h4>
