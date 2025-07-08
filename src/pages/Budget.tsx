@@ -310,7 +310,7 @@ function Budget() {
                       removed forever.
                     </DialogDescription>
                     <button
-                      onClick={() => setDialogEdit(!dialogEdit)}
+                      onClick={() => setDialogDelete(!dialogDelete)}
                       type="button"
                       className="py-4 bg-[#C94736] text-white rounded-[8px] my-5"
                     >
