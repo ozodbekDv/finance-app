@@ -6,6 +6,10 @@ export interface Balance {
 export interface Budget {
   name: string;
   limit: number;
+  id?: string;
+  theme: string;
+  category: string;
+  maximum: number;
 }
 
 export interface Pot {

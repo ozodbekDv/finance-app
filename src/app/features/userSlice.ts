@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   user: null,
   isAuth: false,
+  budgets: [],
+  transactions: [],
 };
 
 const userSlice = createSlice({
@@ -18,8 +20,11 @@ const userSlice = createSlice({
     isAuthReady: (state) => {
       state.isAuth = true;
     },
+    setBudgets: (state, { payload }) => {
+      state.budgets = payload;
+    },
   },
 });
 
-export const { isAuthReady, login, logut } = userSlice.actions;
+export const { isAuthReady, login, logut, setBudgets } = userSlice.actions;
 export default userSlice.reducer;
