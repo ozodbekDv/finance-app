@@ -51,7 +51,7 @@ function RecurringBills() {
   return (
     <div className="container py-8 flex flex-col gap-8 lg:px-10 px-5">
       <h1 className="text-3xl font-bold">Recurring Bills</h1>
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-col lg:flex-row">
         <div>
           <div className="flex flex-col gap-8 bg-gray-900 text-white rounded-[12px] p-6">
             <NotebookText className="w-10 h-10" />
