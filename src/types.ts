@@ -1,6 +1,9 @@
 export interface Balance {
   amount: number;
   currency: string;
+  income: number;
+  expenses: number;
+  current: number;
 }
 
 export interface Budget {
@@ -15,6 +18,9 @@ export interface Budget {
 export interface Pot {
   name: string;
   value: number;
+  id?: string;
+  theme: string;
+  total: number;
 }
 
 export interface Transaction {
