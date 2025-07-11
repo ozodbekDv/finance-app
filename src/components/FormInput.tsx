@@ -1,3 +1,5 @@
+import React from "react";
+
 interface FormProps {
   label: string;
   name: string;
@@ -14,4 +16,4 @@ function FormInput({ label, name, type, placeholder }: FormProps) {
   );
 }
 
-export default FormInput;
+export default React.memo(FormInput);
