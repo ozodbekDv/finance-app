@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -19,4 +20,4 @@ function OverviewCardTop({ path, link, title }: Props) {
   );
 }
 
-export default OverviewCardTop;
+export default React.memo(OverviewCardTop);
