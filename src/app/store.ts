@@ -12,7 +12,7 @@ interface UserState {
 
 export interface RootState {
   user: UserState;
-  // boshqa reducerlar ham bo‘lishi mumkin
+  // other reducers
 }
 
 export const store = configureStore({

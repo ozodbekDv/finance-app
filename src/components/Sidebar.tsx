@@ -23,7 +23,7 @@ const pages = [
   },
   {
     name: "Budgets",
-    path: "/budget",
+    path: "/budgets",
     icon2: "../images/icon-budgets.svg",
     icon: <ChartPie />,
   },

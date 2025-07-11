@@ -1,142 +1,129 @@
 import OverviewCardTop from "@/components/OverviewCardTop";
 import { BadgeDollarSign } from "lucide-react";
 import MyChart from "@/components/PieChart";
+import { useCollectionsData } from "@/hooks/useCollectionData";
+import React from "react";
 
 function Overview() {
+  const [total, setTotal] = React.useState(0);
+  const { data, isPending } = useCollectionsData();
+
+  const pots = data?.pots.slice(0, 4);
+  React.useEffect(() => {
+    if (pots && pots.length > 0) {
+      const totalSaved = pots.reduce((acc, pot) => acc + pot.total, 0);
+      setTotal(totalSaved);
+    }
+  }, [pots]);
+
   return (
     <div className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5">
       <h1 className="font-bold text-3xl mt-2 mb-2.5">Overview</h1>
       <div className="flex md:flex-row flex-col md:justify-between md:gap-6 gap-3">
         <div className="p-6 rounded-[12px] text-white bg-gray-900 w-full">
           <span>Current Balance</span>
-          <h4 className="font-bold text-[32px]">$4,836.00</h4>
+          <h4 className="font-bold text-[32px]">
+            ${isPending ? "0" : data && data.balance[0]?.current}
+          </h4>
         </div>
         <div className="p-6 rounded-[12px] bg-white text-gray-900 w-full">
           <span>Income</span>
-          <h4 className="font-bold text-[32px]">$3,814.25</h4>
+          <h4 className="font-bold text-[32px]">
+            ${isPending ? "0" : data && data.balance[0].income}
+          </h4>
         </div>
         <div className="p-6 rounded-[12px] bg-white text-gray-900 w-full">
           <span>Expenses</span>
-          <h4 className="font-bold text-[32px]">$1,700.50</h4>
+          <h4 className="font-bold text-[32px]">
+            ${isPending ? "0" : data && data.balance[0].expenses}
+          </h4>
         </div>
       </div>
       <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-4">
         <div className="flex flex-col gap-4 mb-4">
           <div className="overview-cards">
-            <OverviewCardTop path="/" link="See Details" title="Pots" />
+            <OverviewCardTop path="/pots" link="See Details" title="Pots" />
             <div className="mt-5 flex gap-5">
               <div className="flex items-center gap-4 bg-beige-100 py-4 px-4 rounded-[12px] bg-[#F8F4F0] grow">
                 <BadgeDollarSign className="text-[#277c78]" />
                 <div>
                   <p className="mb-[11px]">Total Saved</p>
-                  <h4 className="font-bold text-[32px] text-gray-900">$850</h4>
+                  <h4 className="font-bold text-[32px] text-gray-900">
+                    ${total}
+                  </h4>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="px-4 flex gap-4 items-center">
-                  <span className="rounded-[8px] w-1 h-10 bg-[#277C78] inline-block"></span>
-                  <div>
-                    <span className="text-[12px]">Savings</span>
-                    <h4 className="font-bold text-[14px] text-gray-900">
-                      $159
-                    </h4>
-                  </div>
-                </div>
-                <div className="px-4 flex gap-4 items-center">
-                  <span className="rounded-[8px] w-1 h-10 bg-[#82C9D7] inline-block"></span>
-                  <div>
-                    <span className="text-[12px]">Gift</span>
-                    <h4 className="font-bold text-[14px] text-gray-900">$40</h4>
-                  </div>
-                </div>
-                <div className="px-4 flex gap-4 items-center">
-                  <span className="rounded-[8px] w-1 h-10 bg-[#626070] inline-block"></span>
-                  <div>
-                    <span className="text-[12px]">Concert Ticket</span>
-                    <h4 className="font-bold text-[14px] text-gray-900">
-                      $110
-                    </h4>
-                  </div>
-                </div>
-                <div className="px-4 flex gap-4 items-center">
-                  <span className="rounded-[8px] w-1 h-10 bg-[#F2CDAC] inline-block"></span>
-                  <div>
-                    <span className="text-[12px]">New Laptop</span>
-                    <h4 className="font-bold text-[14px] text-gray-900">$10</h4>
-                  </div>
-                </div>
+                {pots?.map((pot) => {
+                  return (
+                    <div className="px-4 flex gap-4 items-center" key={pot.id}>
+                      <span
+                        className={`rounded-[8px] w-1 h-10 bg-[${pot.theme}] inline-block`}
+                      ></span>
+                      <div>
+                        <span className="text-[12px]">{pot.name}</span>
+                        <h4 className="font-bold text-[14px] text-gray-900">
+                          ${pot.total}
+                        </h4>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
           <div className="overview-cards">
-            <OverviewCardTop path="/" link="View All" title="Transactions" />
+            <OverviewCardTop
+              path="/transactions"
+              link="View All"
+              title="Transactions"
+            />
             <div className="flex flex-col gap-5 mt-8">
-              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
-                <div className="flex items-center gap-4">
-                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
-                  <h3 className="font-bold text-[14px]">Emma Richardson</h3>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[14px] text-green-700">
-                    +$75.50
-                  </h4>
-                  <p>19 Aug 2024</p>
-                </div>
-              </div>
-              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
-                <div className="flex items-center gap-4">
-                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
-                  <h3 className="font-bold text-[14px]">Savory Bites Bistro</h3>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[14px] text-green-700">
-                    -$55.50
-                  </h4>
-                  <p>19 Aug 2024</p>
-                </div>
-              </div>
-              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
-                <div className="flex items-center gap-4">
-                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
-                  <h3 className="font-bold text-[14px]">Daniel Carter</h3>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[14px] text-green-700">
-                    -$42.30
-                  </h4>
-                  <p>18 Aug 2024</p>
-                </div>
-              </div>
-              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
-                <div className="flex items-center gap-4">
-                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
-                  <h3 className="font-bold text-[14px]">Sun Park</h3>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[14px] text-green-700">
-                    +$120.00
-                  </h4>
-                  <p>17 Aug 2024</p>
-                </div>
-              </div>
-              <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
-                <div className="flex items-center gap-4">
-                  <span className="w-10 h-10 bg-gray-400 rounded-full inline-block"></span>
-                  <h3 className="font-bold text-[14px]">Urban Services Hub</h3>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[14px] text-green-700">
-                    -$65.00
-                  </h4>
-                  <p>17 Aug 2024</p>
-                </div>
-              </div>
+              {data?.transactions.slice(0, 5).map((transaction) => {
+                const date = new Date(transaction.date || 0);
+                const formattedDate = new Intl.DateTimeFormat("en-GB", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                }).format(date);
+                return (
+                  <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
+                    <div className="flex items-center gap-4">
+                      <img
+                        className="w-10 h-10 bg-gray-400 rounded-full inline-block"
+                        src={transaction.avatar}
+                        alt={transaction.name + " avatar"}
+                      />
+                      <h3 className="font-bold text-[14px]">
+                        {transaction.name}
+                      </h3>
+                    </div>
+                    <div>
+                      {transaction.amount > 0 ? (
+                        <h4 className="font-bold text-[14px] text-green-700">
+                          ${transaction.amount}
+                        </h4>
+                      ) : (
+                        <h4 className="font-bold text-[14px] text-red-700">
+                          -${transaction.amount * -1}
+                        </h4>
+                      )}
+
+                      <p>{formattedDate}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
         <div className="flex flex-col gap-4">
           <div className="overview-cards">
-            <OverviewCardTop path="/" link="See Details" title="Budgets" />
+            <OverviewCardTop
+              path="/budgets"
+              link="See Details"
+              title="Budgets"
+            />
             <div className="flex gap-4 mt-5">
               <MyChart />
               <div className="flex flex-col gap-4">
@@ -181,7 +168,7 @@ function Overview() {
           </div>
           <div className="overview-cards">
             <OverviewCardTop
-              path="/"
+              path="/recurringBills"
               title="Recurring Bills"
               link="See Details"
             />
