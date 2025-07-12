@@ -82,7 +82,7 @@ function RecurringBills() {
           {/* Top */}
           <div className="flex justify-between mb-6 md:mb-0">
             {/* Search input */}
-            <div className="flex items-center lg:gap-4 gap-2 border border-[#98908B] rounded-lg px-5 transition-all duration-300 w-[100px] lg:w-[320px] hover:w-64 focus-within:w-64 focus-within:px-2 py-3">
+            <div className="flex items-center lg:gap-4 gap-2 border border-[#98908B] rounded-lg px-5 transition-all duration-300 w-[100px] lg:w-[200px] hover:w-64 focus-within:w-64 focus-within:px-2 py-3">
               <input
                 className="outline-none w-10 focus-within:w-64 md:w-[40px] lg:w-full"
                 type="text"

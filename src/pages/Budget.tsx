@@ -34,6 +34,25 @@ function Budget() {
     return <h2>No data</h2>;
   }
 
+  const entertainment = data?.transactions.filter(
+    (item) => item.category === "Entertainment"
+  );
+
+  const diningOut = data?.transactions
+    .filter((item) => item.category === "Dining Out")
+    .slice(0, 3);
+
+  const bills = data?.transactions.filter((item) => item.category === "Bills");
+
+  const personalCare = data?.transactions.filter(
+    (item) => item.category === "Personal Care"
+  );
+
+  console.log(
+    personalCare,
+    personalCare && personalCare.reduce((acc, curr) => acc + curr.amount, 0)
+  );
+
   return (
     <div className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5">
       <div className="flex justify-between">
@@ -59,7 +78,7 @@ function Budget() {
                 help you monitor spending.
               </DialogDescription>
               <form className="flex flex-col gap-4 mt-5">
-                <Label htmlFor="budget-category">Budget Category</Label>
+                <p>Budget Category</p>
                 <Select name="budget-category">
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Category" />
@@ -81,11 +100,7 @@ function Budget() {
                 </Select>
                 <div className="grid gap-3">
                   <Label htmlFor="maximum_spend">Maximum Spend</Label>
-                  <Input
-                    id="maximum_spend"
-                    name="maximum_spend"
-                    defaultValue="e.g. 2000"
-                  />
+                  <Input name="maximum_spend" defaultValue="e.g. 2000" />
                 </div>
                 <Label htmlFor="budget-theme">Theme</Label>
                 <Select name="budget-theme">
