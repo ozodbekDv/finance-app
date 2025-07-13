@@ -19,11 +19,18 @@ import {
 } from "@/components/ui/select";
 import { XIcon } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 function Pots() {
   const [dialog, setDialog] = useState(false);
   return (
-    <div className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5"
+    >
       {/* Header */}
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl">Pots</h1>
@@ -37,7 +44,10 @@ function Pots() {
           <DialogContent className="p-8">
             <DialogHeader className="gap-0">
               <DialogTitle className="font-bold text-[32px] mb-5 flex justify-between items-center">
-                <span>Add New Pot</span>
+                <span>
+                  Add New Pot <br />
+                  <span className="underline">Coming soon!</span>
+                </span>
                 <XIcon
                   onClick={() => setDialog(false)}
                   className="border rounded-full border-gray-500 text-gray-500"
@@ -117,7 +127,7 @@ function Pots() {
         <PotsCard />
         <PotsCard />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
