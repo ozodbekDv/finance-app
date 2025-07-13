@@ -1,8 +1,17 @@
-import OverviewCardTop from "@/components/OverviewCardTop";
-import { BadgeDollarSign } from "lucide-react";
-import MyChart from "@/components/PieChart";
-import { useCollectionsData } from "@/hooks/useCollectionData";
 import React from "react";
+
+// components
+import OverviewCardTop from "@/components/OverviewCardTop";
+import MyChart from "@/components/PieChart";
+
+// icons
+import { BadgeDollarSign } from "lucide-react";
+
+// custom hooks
+import { useCollectionsData } from "@/hooks/useCollectionData";
+
+// framer-motion
+import { motion } from "framer-motion";
 
 function Overview() {
   const [total, setTotal] = React.useState(0);
@@ -17,7 +26,13 @@ function Overview() {
   }, [pots]);
 
   return (
-    <div className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5"
+    >
       <h1 className="font-bold text-3xl mt-2 mb-2.5">Overview</h1>
       <div className="flex md:flex-row flex-col md:justify-between md:gap-6 gap-3">
         <div className="p-6 rounded-[12px] text-white bg-gray-900 w-full">
@@ -87,7 +102,10 @@ function Overview() {
                   day: "numeric",
                 }).format(date);
                 return (
-                  <div className="pb-5 border-b border-gray-200 flex justify-between items-center">
+                  <div
+                    key={transaction.id}
+                    className="pb-5 border-b border-gray-200 flex justify-between items-center"
+                  >
                     <div className="flex items-center gap-4">
                       <img
                         className="w-10 h-10 bg-gray-400 rounded-full inline-block"
@@ -189,7 +207,7 @@ function Overview() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

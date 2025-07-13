@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select";
 
 import { useCollectionsData } from "@/hooks/useCollectionData";
+import { motion } from "framer-motion";
 
 function Budget() {
   const { data, isPending } = useCollectionsData();
@@ -34,27 +35,31 @@ function Budget() {
     return <h2>No data</h2>;
   }
 
-  const entertainment = data?.transactions.filter(
-    (item) => item.category === "Entertainment"
-  );
+  // code for future filter
+  // const entertainment = data?.transactions
+  //   .filter((item) => item.category === "Entertainment")
+  //   .slice(0, 3);
 
-  const diningOut = data?.transactions
-    .filter((item) => item.category === "Dining Out")
-    .slice(0, 3);
+  // const diningOut = data?.transactions
+  //   .filter((item) => item.category === "Dining Out")
+  //   .slice(0, 3);
 
-  const bills = data?.transactions.filter((item) => item.category === "Bills");
+  // const bills = data?.transactions
+  //   .filter((item) => item.category === "Bills")
+  //   .slice(0, 3);
 
-  const personalCare = data?.transactions.filter(
-    (item) => item.category === "Personal Care"
-  );
-
-  console.log(
-    personalCare,
-    personalCare && personalCare.reduce((acc, curr) => acc + curr.amount, 0)
-  );
+  // const personalCare = data?.transactions
+  //   .filter((item) => item.category === "Personal Care")
+  //   .slice(0, 3);
 
   return (
-    <div className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="container md:py-8 py-10 flex flex-col gap-8 lg:px-10 px-5"
+    >
       <div className="flex justify-between">
         <h1 className="font-bold text-3xl">Budgets</h1>
         <Dialog open={dialog}>
@@ -67,7 +72,10 @@ function Budget() {
           <DialogContent className="p-8">
             <DialogHeader className="gap-0">
               <DialogTitle className="font-bold text-[32px] mb-5 flex justify-between items-center">
-                <span>Add New Budget</span>
+                <span>
+                  Add New Budget <br />{" "}
+                  <span className="underline">Coming soon!</span>
+                </span>
                 <XIcon
                   onClick={() => setDialog(false)}
                   className="border rounded-full border-gray-500 text-gray-500"
@@ -204,7 +212,7 @@ function Budget() {
             ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

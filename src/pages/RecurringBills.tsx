@@ -10,6 +10,7 @@ import {
 import { useCollectionsData } from "@/hooks/useCollectionData";
 import { NotebookText } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 function RecurringBills() {
   const { data, isPending } = useCollectionsData();
@@ -49,7 +50,13 @@ function RecurringBills() {
     .slice(0, 10);
 
   return (
-    <div className="container py-8 flex flex-col gap-8 lg:px-10 px-5">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="container py-8 flex flex-col gap-8 lg:px-10 px-5"
+    >
       <h1 className="text-3xl font-bold">Recurring Bills</h1>
       <div className="flex gap-6 flex-col lg:flex-row">
         <div>
@@ -177,7 +184,7 @@ function RecurringBills() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

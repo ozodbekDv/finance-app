@@ -1,5 +1,6 @@
-import { useCollectionsData } from "@/hooks/useCollectionData";
 import { useState } from "react";
+
+import { useCollectionsData } from "@/hooks/useCollectionData";
 
 // shadcn/ui components
 import {
@@ -10,15 +11,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-import TransactionSkeleton from "@/components/TransactionSkeleton";
 import { Button } from "@/components/ui/button";
+
+// components
+import TransactionSkeleton from "@/components/TransactionSkeleton";
+
+// icons
 import {
   ChevronLeft,
   ChevronRight,
   Funnel,
   NotepadTextDashed,
 } from "lucide-react";
+
+// framer-motion
+import { motion } from "framer-motion";
 
 function Transactions() {
   const { data, isPending } = useCollectionsData();
@@ -76,7 +83,13 @@ function Transactions() {
     .slice(startIndex, endIndex);
 
   return (
-    <div className="container py-8 flex flex-col gap-8 lg:px-10 px-5">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="container py-8 flex flex-col gap-8 lg:px-10 px-5"
+    >
       <h1 className="font-bold text-3xl mt-2 mb-2.5">Transactions</h1>
       <div className="bg-white rounded-[12px] p-8 flex flex-col gap-4  shadow-md">
         {/* Top */}
@@ -248,7 +261,7 @@ function Transactions() {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
